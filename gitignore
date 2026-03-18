@@ -1,0 +1,56 @@
+# ======================
+# OS Files
+# ======================
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# ======================
+# VS Code
+# ======================
+.vscode/
+*.code-workspace
+.history/
+
+# ======================
+# Python
+# ======================
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.venv/
+ENV/
+pip-log.txt
+pip-delete-this-directory.txt
+.ipynb_checkpoints/
+*.egg-info/
+dist/
+build/
+
+# ======================
+# Node / npm
+# ======================
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+.npm/
+
+# ======================
+# SQL Dumps
+# ======================
+*.sql.gz
+*.dump
+*.bak
+*_backup.sql
+*_dump.sql

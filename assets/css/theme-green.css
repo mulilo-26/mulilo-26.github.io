@@ -1,0 +1,271 @@
+/*
+ * theme-green.css
+ * Dark green theme override for Emmanuel Mulilo's portfolio
+ * Applied over both Dimension (index) and Massively (projects) base styles
+ */
+
+/* ── Core palette ─────────────────────────────────────────────────────────────
+   --green-dim    : deep forest, used for backgrounds / panels
+   --green-mid    : mid green, used for borders, accents
+   --green-bright : vivid green, used for highlights, hovers, primary buttons
+   --dark-base    : near-black page background
+   ──────────────────────────────────────────────────────────────────────────── */
+:root {
+  --green-dim:    #0d2b1a;
+  --green-mid:    #1a5c35;
+  --green-bright: #2ecc71;
+  --green-glow:   rgba(46, 204, 113, 0.15);
+  --green-border: rgba(46, 204, 113, 0.35);
+  --dark-base:    #0a0f0c;
+}
+
+/* ── Page background ──────────────────────────────────────────────────────── */
+body {
+  background-color: var(--dark-base) !important;
+}
+
+/* ── BG overlay tint (Dimension) ─────────────────────────────────────────── */
+#bg:after {
+  background-color: rgba(10, 15, 12, 0.72) !important;
+}
+
+/* ── Wrapper / article panels ────────────────────────────────────────────── */
+#wrapper {
+  background: transparent;
+}
+
+#main article {
+  background-color: rgba(13, 43, 26, 0.92) !important;
+  border: 1px solid var(--green-border) !important;
+  box-shadow: 0 0 40px rgba(46, 204, 113, 0.08) !important;
+}
+
+/* ── Header (landing centre block) ──────────────────────────────────────── */
+#header .logo {
+  border-color: var(--green-border) !important;
+  color: var(--green-bright) !important;
+}
+
+#header .logo .icon {
+  color: var(--green-bright) !important;
+}
+
+#header .content .inner h1 {
+  color: #ffffff !important;
+}
+
+#header .content .inner p {
+  color: rgba(255, 255, 255, 0.75) !important;
+}
+
+/* ── Nav buttons (landing) ───────────────────────────────────────────────── */
+#header nav ul li a {
+  border-color: var(--green-border) !important;
+  color: #ffffff !important;
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease !important;
+}
+
+#header nav ul li a:hover {
+  background-color: var(--green-glow) !important;
+  border-color: var(--green-bright) !important;
+  color: var(--green-bright) !important;
+}
+
+/* ── Article headings (h2.major) ─────────────────────────────────────────── */
+h2.major {
+  border-bottom-color: var(--green-border) !important;
+  color: #ffffff !important;
+}
+
+h2.major::after {
+  background-color: var(--green-bright) !important;
+}
+
+/* ── Links ───────────────────────────────────────────────────────────────── */
+a {
+  color: var(--green-bright) !important;
+  border-bottom-color: var(--green-border) !important;
+}
+
+a:hover {
+  border-bottom-color: var(--green-bright) !important;
+}
+
+/* ── Primary buttons ─────────────────────────────────────────────────────── */
+input[type="submit"].primary,
+input[type="reset"].primary,
+input[type="button"].primary,
+button.primary,
+.button.primary {
+  background-color: var(--green-bright) !important;
+  border-color: var(--green-bright) !important;
+  color: var(--dark-base) !important;
+  font-weight: 700 !important;
+}
+
+input[type="submit"].primary:hover,
+button.primary:hover,
+.button.primary:hover {
+  background-color: #27ae60 !important;
+  border-color: #27ae60 !important;
+}
+
+/* Default (outline) buttons */
+.button {
+  border-color: var(--green-border) !important;
+  color: #ffffff !important;
+}
+
+.button:hover {
+  background-color: var(--green-glow) !important;
+  border-color: var(--green-bright) !important;
+  color: var(--green-bright) !important;
+}
+
+/* ── Form inputs ─────────────────────────────────────────────────────────── */
+input[type="text"],
+input[type="email"],
+textarea,
+select {
+  border-color: var(--green-border) !important;
+  background-color: rgba(13, 43, 26, 0.5) !important;
+  color: #ffffff !important;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+textarea:focus {
+  border-color: var(--green-bright) !important;
+  box-shadow: 0 0 0 1px var(--green-bright) !important;
+}
+
+/* ── Social icons ────────────────────────────────────────────────────────── */
+ul.icons li a {
+  border-color: var(--green-border) !important;
+  color: #ffffff !important;
+}
+
+ul.icons li a:hover {
+  background-color: var(--green-bright) !important;
+  border-color: var(--green-bright) !important;
+  color: var(--dark-base) !important;
+}
+
+/* ── Footer ──────────────────────────────────────────────────────────────── */
+#footer {
+  color: rgba(255, 255, 255, 0.4) !important;
+}
+
+#footer a {
+  color: var(--green-bright) !important;
+  border-bottom-color: transparent !important;
+}
+
+/* ── Close button on articles ────────────────────────────────────────────── */
+#main article .close:before,
+#main article .close:after {
+  background: var(--green-bright) !important;
+}
+
+#main article header.close:hover {
+  color: var(--green-bright) !important;
+}
+
+
+/* ════════════════════════════════════════════════════════════════════════════
+   PROJECTS PAGE  (Massively base)
+   ════════════════════════════════════════════════════════════════════════════ */
+
+/* Massively intro/hero section */
+#intro {
+  border-color: var(--green-border) !important;
+}
+
+#intro h1 {
+  color: #ffffff !important;
+}
+
+/* Massively top nav bar */
+#header.alt {
+  background-color: var(--dark-base) !important;
+}
+
+#nav a,
+#header nav a {
+  color: rgba(255,255,255,0.85) !important;
+}
+
+#nav a:hover,
+#header nav a:hover,
+#nav a.active,
+#header nav a.active {
+  color: var(--green-bright) !important;
+}
+
+/* Massively article cards */
+.posts article {
+  border-color: var(--green-border) !important;
+  background-color: rgba(13, 43, 26, 0.45) !important;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease !important;
+}
+
+.posts article:hover {
+  border-color: var(--green-bright) !important;
+  box-shadow: 0 4px 24px rgba(46, 204, 113, 0.1) !important;
+}
+
+/* Massively section headings */
+#main > .posts > header h2 {
+  color: #ffffff !important;
+}
+
+/* Massively pagination */
+.pagination .page,
+.pagination .next,
+.pagination .previous {
+  border-color: var(--green-border) !important;
+  color: rgba(255,255,255,0.7) !important;
+}
+
+.pagination .page:hover,
+.pagination .next:hover,
+.pagination .previous:hover,
+.pagination .page.active {
+  background-color: var(--green-bright) !important;
+  border-color: var(--green-bright) !important;
+  color: var(--dark-base) !important;
+}
+
+/* Back to portfolio link button */
+.back-link {
+  display: inline-block;
+  margin-bottom: 2em;
+  padding: 0.5em 1.4em;
+  border: 1px solid var(--green-border);
+  border-radius: 4px;
+  color: rgba(255,255,255,0.8) !important;
+  font-size: 0.85em;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none !important;
+  border-bottom: 1px solid var(--green-border) !important;
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.back-link:hover {
+  background-color: var(--green-glow);
+  border-color: var(--green-bright) !important;
+  color: var(--green-bright) !important;
+}
+
+/* Resume panel specifics */
+.resume-meta {
+  font-size: 0.9em;
+  color: rgba(255,255,255,0.6);
+  margin-bottom: 1.5em;
+  line-height: 1.7;
+}
+
+.resume-meta strong {
+  color: var(--green-bright);
+}
