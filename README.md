@@ -65,7 +65,7 @@ This project is licensed under the MIT License — see the [LICENSE](LICENSE) fi
 
 ---
 
-## 🙋 Author
+## 🙋🏾‍♂️ Author
 
 **Emmanuel Mulilo**  
 Feel free to connect or reach out if you have feedback or questions!
