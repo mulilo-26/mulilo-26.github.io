@@ -11,6 +11,16 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/massively/main.css" />
 		<link rel="stylesheet" href="assets/css/theme-green.css" />
+		<script>
+			/* Apply the saved theme before first paint to avoid a flash */
+			(function () {
+				try {
+					if (localStorage.getItem('mulilo-theme') === 'light') {
+						document.documentElement.classList.add('light-mode');
+					}
+				} catch (e) {}
+			})();
+		</script>
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 	</head>
 	<body class="is-preload">
@@ -40,12 +50,12 @@
 				</ul>
 				<ul class="icons">
 					<li>
-						<a href="https://github.com/" target="_blank" class="icon brands fa-github">
+						<a href="https://github.com/mulilo-26" target="_blank" class="icon brands fa-github">
 							<span class="label">GitHub</span>
 						</a>
 					</li>
 					<li>
-						<a href="https://linkedin.com/in/" target="_blank" class="icon brands fa-linkedin">
+						<a href="https://www.linkedin.com/in/emmanuel-mulilo-7b3078191/" target="_blank" class="icon brands fa-linkedin">
 							<span class="label">LinkedIn</span>
 						</a>
 					</li>
@@ -72,7 +82,7 @@
 					<a href="#" class="image main"><img src="images/pic01.jpg" alt="Featured Project" /></a>
 					<ul class="actions special">
 						<li><a href="#" class="button large">View Project</a></li>
-						<li><a href="https://github.com/" target="_blank" class="button large icon brands fa-github">GitHub</a></li>
+						<li><a href="https://github.com/mulilo-26" target="_blank" class="button large icon brands fa-github">GitHub</a></li>
 					</ul>
 				</article>
 
@@ -173,22 +183,22 @@
 				<section class="split contact">
 					<section>
 						<h3>GitHub</h3>
-						<p><a href="https://github.com/" target="_blank">github.com/yourusername</a></p>
+						<p><a href="https://github.com/mulilo-26" target="_blank">github.com/mulilo-26</a></p>
 					</section>
 					<section>
 						<h3>LinkedIn</h3>
-						<p><a href="https://linkedin.com/in/" target="_blank">linkedin.com/in/yourusername</a></p>
+						<p><a href="https://www.linkedin.com/in/emmanuel-mulilo-7b3078191/" target="_blank">linkedin.com/in/emmanuel-mulilo-7b3078191</a></p>
 					</section>
 					<section>
 						<h3>Social</h3>
 						<ul class="icons alt">
 							<li>
-								<a href="https://github.com/" target="_blank" class="icon brands alt fa-github">
+								<a href="https://github.com/mulilo-26" target="_blank" class="icon brands alt fa-github">
 									<span class="label">GitHub</span>
 								</a>
 							</li>
 							<li>
-								<a href="https://linkedin.com/in/" target="_blank" class="icon brands alt fa-linkedin">
+								<a href="https://www.linkedin.com/in/emmanuel-mulilo-7b3078191/" target="_blank" class="icon brands alt fa-linkedin">
 									<span class="label">LinkedIn</span>
 								</a>
 							</li>
@@ -207,6 +217,11 @@
 
 		</div>
 
+		<!-- Theme toggle -->
+		<button id="theme-toggle" class="theme-toggle" type="button" aria-label="Switch to light mode" aria-pressed="false">
+			<span class="icon solid fa-moon"></span>
+		</button>
+
 		<!-- Scripts -->
 		<script src="assets/js/jquery.min.js"></script>
 		<script src="assets/js/jquery.scrollex.min.js"></script>
@@ -215,6 +230,7 @@
 		<script src="assets/js/breakpoints.min.js"></script>
 		<script src="assets/js/util.js"></script>
 		<script src="assets/js/massively-main.js"></script>
+		<script src="assets/js/theme-toggle.js"></script>
 
 	</body>
 </html>

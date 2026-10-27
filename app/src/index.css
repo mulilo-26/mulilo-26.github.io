@@ -1,0 +1,119 @@
+@import "tailwindcss";
+
+/*
+ * Display face, self-hosted (SIL Open Font License).
+ * Body copy stays on the system stack: zero bytes, already installed everywhere.
+ */
+@font-face {
+  font-family: "Space Grotesk";
+  src: url("/fonts/SpaceGrotesk-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Space Grotesk";
+  src: url("/fonts/SpaceGrotesk-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-display: swap;
+}
+
+/*
+ * Design tokens — editorial data-viz.
+ * Tailwind v4 reads --color-* / --font-* and generates utilities:
+ *   --color-bg -> bg-bg, text-bg, border-bg
+ *   --font-mono -> font-mono
+ */
+@theme {
+  --color-bg: oklch(0.17 0.02 155);
+  --color-surface: oklch(0.22 0.025 155);
+  --color-raised: oklch(0.26 0.025 155);
+  --color-border: oklch(0.32 0.02 155);
+  --color-text: oklch(0.95 0.01 155);
+  --color-muted: oklch(0.68 0.015 155);
+  --color-accent: oklch(0.78 0.17 152);
+  --color-accent-dim: oklch(0.45 0.09 152);
+
+  --font-sans:
+    ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue",
+    Arial, sans-serif;
+  --font-heading: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-mono:
+    ui-monospace, "SFMono-Regular", "SF Mono", Menlo, Consolas, "Liberation Mono",
+    monospace;
+
+  --ease-out-soft: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+html {
+  color-scheme: dark;
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+html.light {
+  color-scheme: light;
+  --color-bg: oklch(0.985 0.004 155);
+  --color-surface: oklch(0.955 0.006 155);
+  --color-raised: oklch(0.925 0.008 155);
+  --color-border: oklch(0.86 0.01 155);
+  --color-text: oklch(0.22 0.02 155);
+  --color-muted: oklch(0.45 0.015 155);
+  --color-accent: oklch(0.5 0.13 152);
+  --color-accent-dim: oklch(0.75 0.08 152);
+}
+
+body {
+  margin: 0;
+  min-height: 100dvh;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  font-synthesis-weight: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-heading);
+}
+
+::selection {
+  background-color: var(--color-accent);
+  color: var(--color-bg);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* Subtle film grain. Cheap, static, and it stops large flat areas
+   from looking like a default Tailwind page. */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  pointer-events: none;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

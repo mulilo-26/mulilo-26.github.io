@@ -43,8 +43,8 @@ node_modules/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-package-lock.json
 .npm/
+# Lockfiles must be committed for reproducible builds.
 
 # ======================
 # SQL Dumps
@@ -54,3 +54,10 @@ package-lock.json
 *.bak
 *_backup.sql
 *_dump.sql
+
+# ======================
+# Local source notes
+# ======================
+# Working drafts that feed the site content. Kept local only;
+# the published copy lives in assets/data/projects.json.
+/Projects/

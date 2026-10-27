@@ -11,6 +11,16 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<link rel="stylesheet" href="assets/css/theme-green.css" />
+		<script>
+			/* Apply the saved theme before first paint to avoid a flash */
+			(function () {
+				try {
+					if (localStorage.getItem('mulilo-theme') === 'light') {
+						document.documentElement.classList.add('light-mode');
+					}
+				} catch (e) {}
+			})();
+		</script>
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 	</head>
 	<body class="is-preload">
@@ -183,12 +193,12 @@
 					</form>
 					<ul class="icons">
 						<li>
-							<a href="https://github.com/" target="_blank" class="icon brands fa-github">
+							<a href="https://github.com/mulilo-26" target="_blank" class="icon brands fa-github">
 								<span class="label">GitHub</span>
 							</a>
 						</li>
 						<li>
-							<a href="https://linkedin.com/in/" target="_blank" class="icon brands fa-linkedin">
+							<a href="https://www.linkedin.com/in/emmanuel-mulilo-7b3078191/" target="_blank" class="icon brands fa-linkedin">
 								<span class="label">LinkedIn</span>
 							</a>
 						</li>
@@ -205,6 +215,11 @@
 
 		</div>
 
+		<!-- Theme toggle -->
+		<button id="theme-toggle" class="theme-toggle" type="button" aria-label="Switch to light mode" aria-pressed="false">
+			<span class="icon solid fa-moon"></span>
+		</button>
+
 		<!-- BG -->
 		<div id="bg"></div>
 
@@ -214,6 +229,7 @@
 		<script src="assets/js/breakpoints.min.js"></script>
 		<script src="assets/js/util.js"></script>
 		<script src="assets/js/main.js"></script>
+		<script src="assets/js/theme-toggle.js"></script>
 
 	</body>
 </html>
