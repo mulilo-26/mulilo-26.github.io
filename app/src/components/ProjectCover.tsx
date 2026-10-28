@@ -35,7 +35,7 @@ function Artwork({ slug }: { slug: string }) {
     )
   }
 
-  if (slug === 'scoped-autonomy') {
+  if (slug === 'autonomous-portfolio-agent') {
     return (
       <g fill="none">
         <rect

@@ -50,7 +50,11 @@ export default function Home() {
             </p>
             <dl className="mt-4 space-y-3 font-mono text-xs">
               <div className="flex items-baseline justify-between gap-4">
-                <dt className="text-muted">Study</dt>
+                <dt className="text-muted">School</dt>
+                <dd className="text-right">{education.school}</dd>
+              </div>
+              <div className="flex items-baseline justify-between gap-4">
+                <dt className="text-muted">Programme</dt>
                 <dd className="text-right">{education.degree}</dd>
               </div>
               <div className="flex items-baseline justify-between gap-4">
@@ -58,8 +62,8 @@ export default function Home() {
                 <dd className="text-right text-accent">{education.status}</dd>
               </div>
               <div className="flex items-baseline justify-between gap-4">
-                <dt className="text-muted">Focus</dt>
-                <dd className="text-right">Data systems · Local AI</dd>
+                <dt className="text-muted">Based</dt>
+                <dd className="text-right">{site.location}</dd>
               </div>
             </dl>
           </aside>

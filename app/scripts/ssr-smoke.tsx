@@ -7,28 +7,42 @@ import ProjectDetail from '../src/pages/ProjectDetail'
 import Resume from '../src/pages/Resume'
 import Work from '../src/pages/Work'
 
-type Case = { url: string; pattern: string; element: ReactElement }
+type Case = {
+  url: string
+  pattern: string
+  element: ReactElement
+  /** Text that must appear in the output — guards against a route silently 404ing. */
+  expect: string
+}
 
 const cases: Case[] = [
-  { url: '/', pattern: '/', element: <Home /> },
-  { url: '/work', pattern: '/work', element: <Work /> },
+  { url: '/', pattern: '/', element: <Home />, expect: 'Air-Gapped Notes' },
+  { url: '/work', pattern: '/work', element: <Work />, expect: 'SmartQueue LTE' },
   {
     url: '/work/air-gapped-notes',
     pattern: '/work/:slug',
     element: <ProjectDetail />,
+    expect: 'privacy-first',
   },
   {
-    url: '/work/scoped-autonomy',
+    url: '/work/autonomous-portfolio-agent',
     pattern: '/work/:slug',
     element: <ProjectDetail />,
+    expect: 'Autonomous Portfolio Management Agent',
   },
   {
-    url: '/work/latency-over-bandwidth',
+    url: '/work/smartqueue-lte',
     pattern: '/work/:slug',
     element: <ProjectDetail />,
+    expect: 'SmartQueue LTE',
   },
-  { url: '/resume', pattern: '/resume', element: <Resume /> },
-  { url: '/nope', pattern: '*', element: <NotFound /> },
+  {
+    url: '/resume',
+    pattern: '/resume',
+    element: <Resume />,
+    expect: 'The Copperbelt University',
+  },
+  { url: '/nope', pattern: '*', element: <NotFound />, expect: 'Not found' },
 ]
 
 let failed = 0
@@ -43,11 +57,15 @@ for (const testCase of cases) {
       </MemoryRouter>,
     )
 
-    const ok = html.length > 500
-    if (!ok) failed += 1
+    const hasContent = html.includes(testCase.expect)
+    if (!hasContent) failed += 1
+
     console.log(
-      `${ok ? 'ok  ' : 'FAIL'} ${testCase.url.padEnd(34)} ${html.length} bytes`,
+      `${hasContent ? 'ok  ' : 'FAIL'} ${testCase.url.padEnd(36)} ${html.length} bytes`,
     )
+    if (!hasContent) {
+      console.error(`     missing expected text: "${testCase.expect}"`)
+    }
   } catch (error) {
     failed += 1
     console.error(`FAIL ${testCase.url}`, error)
@@ -59,4 +77,4 @@ if (failed > 0) {
   process.exit(1)
 }
 
-console.log('\nAll routes rendered without runtime errors.')
+console.log('\nAll routes rendered the expected content.')

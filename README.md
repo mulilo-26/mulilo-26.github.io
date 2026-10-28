@@ -36,14 +36,14 @@ app/
 │   ├── index.css       Design tokens, base styles, font faces
 │   ├── App.tsx         Route table
 │   └── main.tsx
-├── public/             Icons, OG image, fonts, robots.txt
+├── public/             Icons, OG image, fonts, CV, robots.txt
 ├── scripts/postbuild.mjs   404.html, .nojekyll, sitemap.xml
 ├── index.html          Meta tags, theme bootstrap, JSON-LD
 └── vite.config.ts      Tailwind + PWA config
 ```
 
-The original HTML5 UP site (`index.html`, `projects.html`, `assets/`) is kept as a
-fallback until the React build is deployed. It is not part of the build.
+The original HTML5 UP version was removed in commit `32adc2c` and is preserved
+at the `v1-static` tag.
 
 ---
 
@@ -73,17 +73,17 @@ Almost everything you need is in two files:
   Missing facts are `null`, and the UI omits them rather than inventing values.
 - **`app/src/data/site.ts`** — name, tagline, nav, skills, education, social links.
 
-### Turning on the CV download
+### Replacing the CV
 
-1. Drop the PDF at `assets/resume/emmanuel-mulilo-cv.pdf`.
-2. Set `cvAvailable: true` in `app/src/data/site.ts`.
+The PDF is served straight from `app/public/resume/emmanuel-mulilo-cv.pdf`.
+Overwrite that file with a new one — same filename, no config change needed.
+Set `cvAvailable: false` in `app/src/data/site.ts` to hide the download button
+while you are updating it.
 
-`scripts/postbuild.mjs` copies the PDF into the build automatically.
+### Changing the contact email
 
-### Turning on the email link
-
-Set `email` in `app/src/data/site.ts`. While it is `null`, the contact section
-points at LinkedIn instead of showing a dead mailto.
+`email` in `app/src/data/site.ts` is set. If you ever set it to `null`, the
+contact section falls back to LinkedIn instead of showing a dead mailto link.
 
 ---
 
@@ -103,7 +103,7 @@ stale-while-revalidate. Updates apply automatically on the next navigation.
 `.github/workflows/deploy.yml` builds `app/` and publishes `app/dist` to GitHub
 Pages on every push to `main`.
 
-> **Pushing to `main` deploys the React site and replaces the old one.**
+> **Pushing to `main` rebuilds and deploys the site.**
 > Set **Settings → Pages → Source** to **GitHub Actions** once.
 
 Deep links work because `postbuild.mjs` copies `index.html` to `404.html`, which

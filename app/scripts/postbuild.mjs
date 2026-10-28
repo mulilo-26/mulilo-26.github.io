@@ -1,5 +1,4 @@
-import { copyFile, mkdir, readFile, writeFile } from 'node:fs/promises'
-import { existsSync } from 'node:fs'
+import { copyFile, readFile, writeFile } from 'node:fs/promises'
 import path from 'node:path'
 
 const dist = 'dist'
@@ -11,17 +10,6 @@ await copyFile(path.join(dist, 'index.html'), path.join(dist, '404.html'))
 
 // Stop GitHub Pages from running Jekyll over the build output.
 await writeFile(path.join(dist, '.nojekyll'), '')
-
-// Ship the CV if it has been dropped into the repo.
-const cv = path.join('..', 'assets', 'resume', 'emmanuel-mulilo-cv.pdf')
-if (existsSync(cv)) {
-  const target = path.join(dist, 'assets', 'resume')
-  await mkdir(target, { recursive: true })
-  await copyFile(cv, path.join(target, 'emmanuel-mulilo-cv.pdf'))
-  console.log('postbuild: copied CV to dist/assets/resume/')
-} else {
-  console.log('postbuild: no CV found at assets/resume/emmanuel-mulilo-cv.pdf')
-}
 
 // Sitemap from the route table plus the project slugs.
 const source = await readFile(path.join('src', 'data', 'projects.ts'), 'utf8')

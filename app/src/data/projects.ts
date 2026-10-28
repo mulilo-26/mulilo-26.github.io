@@ -34,7 +34,7 @@ export const projects: Project[] = [
   {
     slug: 'air-gapped-notes',
     title: 'Air-Gapped Notes',
-    subtitle: 'A local RAG assistant that never leaves the machine',
+    subtitle: 'A privacy-first local AI research and editing assistant',
     summary:
       'A fully offline retrieval-augmented assistant inside Obsidian: local embeddings, local inference, zero network traffic.',
     discipline: 'Local AI',
@@ -88,11 +88,11 @@ export const projects: Project[] = [
     },
   },
   {
-    slug: 'scoped-autonomy',
-    title: 'Scoped Autonomy',
+    slug: 'autonomous-portfolio-agent',
+    title: 'Autonomous Portfolio Management Agent',
     subtitle: 'A coding agent confined to a single repository',
     summary:
-      'A terminal coding agent restricted to one repository, with git snapshots as the safety net and hard token budgets as the constraint.',
+      'An agent that maintains this site from inside a scoped repository, with git snapshots as the safety net and hard token budgets as the constraint.',
     discipline: 'Tooling',
     role: 'Design and implementation',
     year: null,
@@ -120,8 +120,8 @@ export const projects: Project[] = [
           body: 'Launched from the repository root, the agent’s workspace is that directory. It has no visibility into personal documents, system configuration, or other projects. The boundary is structural, not a promise.',
         },
         {
-          title: 'A tool loop, not a chat box',
-          body: 'The agent maps the codebase with Glob and Read, applies edits, then prints a diff for review. The useful shift is from receiving snippets to reviewing actions.',
+          title: 'A ReAct loop, not a chat box',
+          body: 'The agent reasons, acts, then observes the result before choosing its next move — mapping the codebase with Glob and Read, applying edits, and printing a diff for review. The useful shift is from receiving snippets to reviewing actions.',
         },
         {
           title: 'Snapshot before every write',
@@ -139,11 +139,11 @@ export const projects: Project[] = [
     },
   },
   {
-    slug: 'latency-over-bandwidth',
-    title: 'Latency Over Bandwidth',
-    subtitle: 'An OpenWrt experiment in bufferbloat, and knowing when to stop',
+    slug: 'smartqueue-lte',
+    title: 'SmartQueue LTE',
+    subtitle: 'A low-latency network optimization gateway',
     summary:
-      'Rebuilt a home network around SQM and bufferbloat control, then reverted it when the numbers did not justify the added complexity.',
+      'Rebuilt a home network around SQM and bufferbloat control on an LTE link, then reverted it when the numbers did not justify the added complexity.',
     discipline: 'Networking',
     role: 'Design and implementation',
     year: null,
@@ -173,7 +173,7 @@ export const projects: Project[] = [
         },
         {
           title: 'Split gateway from access point',
-          body: 'The faster router took the cell signal as gateway; the OpenWrt box became the wireless access point. Structurally similar to Starlink’s bypass mode, where a dedicated modem feeds a separate router.',
+          body: 'The LTE modem was bridged into Layer 2 passthrough and became the gateway; the OpenWrt box became the wireless access point. Structurally similar to Starlink’s bypass mode, where a dedicated modem feeds a separate router.',
         },
         {
           title: 'Attack bufferbloat with CAKE',
@@ -182,6 +182,10 @@ export const projects: Project[] = [
         {
           title: 'Make the limit dynamic',
           body: 'cake-autorate adjusts the shaper from real-time link speed instead of a hard-coded number — which is what a variable cellular link actually requires.',
+        },
+        {
+          title: 'Recover what the shaper cost',
+          body: 'Resolving local subnets and trimming link-layer framing overhead clawed back some of the throughput the shaper gave up — the parts of the pipeline that had nothing to do with bufferbloat.',
         },
         {
           title: 'Power both from one cable',

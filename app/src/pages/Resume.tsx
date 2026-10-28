@@ -58,8 +58,12 @@ export default function Resume() {
           <Heading>Education</Heading>
           <div>
             <p className="font-medium">{education.degree}</p>
-            <p className="mt-1 text-sm text-muted">{education.status}</p>
-            <p className="mt-1 text-sm text-muted">Focus: {education.focus}</p>
+            <p className="mt-1 text-sm text-muted">
+              {education.school} · {education.location}
+            </p>
+            <p className="mt-1 text-sm text-muted">
+              {education.period} · {education.status}
+            </p>
           </div>
         </section>
 
