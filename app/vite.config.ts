@@ -42,6 +42,10 @@ export default defineConfig({
       workbox: {
         globPatterns: ['**/*.{js,css,html,svg,png,woff2}'],
         navigateFallback: '/index.html',
+        // Without this, a click on the CV download is treated as a navigation
+        // and the service worker answers with index.html — the browser then
+        // saves an HTML file named *.pdf, which no viewer will open.
+        navigateFallbackDenylist: [/\/resume\//, /\.pdf$/],
         cleanupOutdatedCaches: true,
         runtimeCaching: [
           {
